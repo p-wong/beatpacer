@@ -3,17 +3,18 @@ import { PlayButton, Icons } from 'react-soundplayer/components'
 import { withSoundCloudAudio } from 'react-soundplayer/addons'
 import Visualization from '../Visualization'
 
-
 import SpotifyWebApi from 'spotify-web-api-js';
 const spotifyApi = new SpotifyWebApi();
 
 class EachTrack extends React.Component {
 
   render() {
+    console.log(this.props.artists)
     return (
       <tr>
-        <td><button id="preview-button" onClick={() => {this.props.handlePlayPause(this.props.id)}}>{this.props.playing ? 'Stop' : 'Preview' }</button> {this.props.name}</td>
-        <td>{this.props.artists}</td>
+        <td><button id="preview-button" onClick={() => {this.props.handlePlayPause(this.props.id)}}>{this.props.playing ? 'Stop' : 'Preview' }</button></td>
+        <td>{this.props.name}</td>
+        <td>{this.props.artists.join(', ')}</td>
         <td>{Math.round(this.props.tempo)}</td>
         <td>{this.props.convertMillisecondsToMinutes(this.props.duration)}</td>
       </tr>

@@ -70,7 +70,7 @@ class App extends Component {
   render() {
     console.log(this.state.loggedIn)
     return (
-      <span>
+      <div>
         <NavBar params={this.state.params} playing={this.state.playing} audioFile={this.state.audioFile}/>
         <div className="header-maincontainer">
           <div className="header-titlecontainer">
@@ -82,23 +82,27 @@ class App extends Component {
         </div>
         { this.state.loggedIn
         ?
-        <span>
-          <div className="body-container">
-            <p className="firstchoice-text"><div className="numbered-choices">1</div>  Choose either your saved songs, or a genre of your liking:    {this.renderPlaylistSourceDropdown()}</p>
-            < PlaylistContainer params={this.state.params} handlePlayPause={this.handlePlayPause} playing={this.state.playing} playlistSelected={this.state.playlistSelected}/>
-          </div>
-        </span>
-        :
-        <span>
-          <div className="body-container wrapper">
-            <p className="header-text">To get started, login with your Spotify credentials.<br/></p>
-            <div className="wrapper">
-              <button className="login-button"><a href='http://localhost:8888'>Login with Spotify</a></button>
+
+          <div className="body-full">
+            <div className="body-container">
+              <p className="firstchoice-text"><div className="numbered-choices">1</div>  Choose either your saved songs, or a genre of your liking:    {this.renderPlaylistSourceDropdown()}</p>
+              < PlaylistContainer params={this.state.params} handlePlayPause={this.handlePlayPause} playing={this.state.playing} playlistSelected={this.state.playlistSelected}/>
             </div>
           </div>
-        </span>
+
+        :
+
+          <div className="body-full">
+            <div className="body-container wrapper">
+              <p className="header-text">To get started, login with your Spotify credentials.<br/></p>
+              <div className="wrapper">
+                <button className="login-button"><a href='http://localhost:8888'>Login with Spotify</a></button>
+              </div>
+            </div>
+          </div>
+
         }
-      </span>
+      </div>
     );
   }
 }

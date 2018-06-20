@@ -17,9 +17,7 @@ import SpotifyWebApi from 'spotify-web-api-js';
 const spotifyApi = new SpotifyWebApi();
 
 class PlaylistContainer extends Component {
-  state = {
-  }
-
+  
   //Selecting the playlist
   handleDropdowns = (event) => {
     this.setState({

@@ -23,10 +23,11 @@ class PresentationalTracks extends React.Component {
       <table id="table">
         <tbody>
           <tr>
-            <th width="50%">Song Name</th>
-            <th width="30%">Artist(s)</th>
-            <th width="10%">Tempo (BPM)</th>
-            <th width="10%">Duration (min)</th>
+            <th width="7%">{}</th>
+            <th width="38%" className="title-margin">Title</th>
+            <th width="30%">Artist</th>
+            <th width="12.5%">Tempo (BPM)</th>
+            <th width="12.5%">Duration (min)</th>
           </tr>
           {this.renderTracks()}
         </tbody>

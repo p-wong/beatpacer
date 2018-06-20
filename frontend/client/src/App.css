@@ -1,44 +1,25 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'Circular';
+  src: url('./style/circular-book.otf') format("opentype");
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@font-face {
+  font-family: 'CircularBold';
+  font-weight: bold;
+  src: url('./style/circular-bold.otf') format("opentype");
 }
 
 body {
-  background-color: #2A2A2A;
-  /* background-color: #3F3F3F */
+  background-color: #fefefe;
   color: white;
-  font-family: "Arial"
+  font-family: 'Circular', Arial
 }
 
 .nav-bar {
   position: absolute;
   top: 0px;
   background-color: #2A2A2A;
-  height: 80px;
+  height: 120px;
   width: 100%;
 }
 
@@ -53,7 +34,7 @@ body {
   /* color: transparent; */
   float: left;
   margin-left: 10px;
-  margin-top: 15px;
+  margin-top: 35px;
 }
 
 .nav-title {
@@ -61,12 +42,12 @@ body {
   font-size: 24px;
   color: white;
   margin-left: 22px;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 15px;
   padding: 10px 0 10px 22px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   float:left;
-  font-family: "Arial";
+  font-family: "CircularBold";
 }
 
 .logout-button {
@@ -82,7 +63,7 @@ body {
   border-radius: 70px;
   text-transform: uppercase;
   /* margin-top: px; */
-  margin: 20px;
+  margin: 40px;
   left: 1650px;
   /* float: right; */
   /* margin-left: 1450px; */
@@ -91,21 +72,23 @@ body {
 
 .header-maincontainer {
   position: absolute;
-  top: 80px;
-  background-color: #f8f8f8;
-  height: 250px;
+  top: 120px;
+  background-color: #292929;
+  height: 200px;
   width: 100%;
 }
 
 .header-titlecontainer {
   text-align: center;
-  margin-top: 55px;
+  margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
 }
 
 .header-title {
   font-size: 75px;
+  color: lightgrey;
+  font-family: 'CircularBold';
 }
 
 .header-text {
@@ -113,6 +96,9 @@ body {
   margin-right: 30px;
   font-size: 20px;
   line-height: 35px;
+  color: lightgrey;
+  font-family: 'Circular';
+
 }
 
 .login-button {
@@ -140,13 +126,16 @@ body {
 .body-container {
   position: absolute;
   top: 375px;
-  background-color: white;
+  /* background-color: #292929; */
   height: 150px;
   width: 60%;
   text-align: center;
   border-color: black;
   align: center;
   left: 20%;
+  color: #f5f5f5;
+  font-family: 'Circular';
+
 }
 
 .body-title {
@@ -184,8 +173,8 @@ body {
 
 #visualizer {
   position: absolute;
-  top: -10px;
-  left: 350px;
+  /* top: 0px; */
+  left: 295px;
   height: 100px;
   width: 70%;
   /* text-align: center; */
@@ -217,12 +206,13 @@ body {
 }
 
 .playlist-dropdown {
-  background-color: white;
-  border-color: #2ebd59;
+  background-color: #0b0b0d;
+  border-color: #8f8f8f;
   margin-left: 10px;
-  font-size: 19px;
+  font-size: 17px;
   width: 200px;
   height: 35px;
+  color: #ffffff;
 }
 
 .create-playlist-button {
@@ -236,7 +226,8 @@ body {
   font-size: 20px;
   border-radius: 50px;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
+  font-family: 'Circular';
 }
 
 .create-playlist-button:hover {
@@ -244,28 +235,32 @@ body {
 }
 
 #table {
-  font-family: Helvetica, Arial, sans-serif;
+  /* font-family: Helvetica, Arial, sans-serif; */
   border-collapse: collapse;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
   margin-top: 50px;
+  color: #ffffff;
 }
 
 #table td, #table th {
-  border-bottom: 1px solid #ddd;
-  padding: 8px;
+  border-bottom: 0.5px solid #8f8f8f;
+  padding: 11px 0px 11px 8px;
 }
 
 /* #table tr:nth-child(even){background-color: #f2f2f2;} */
 
-#table tr:hover {background-color: #ddd;}
+#table tr:hover {background-color: #8f8f8f;}
 
 #table th {
   padding-top: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
   text-align: left;
-  background-color: #2ebd59;
-  color: white;
+  /* background-color: #2ebd59; */
+  color: #8f8f8f;
+  text-transform: uppercase;
+  font-size: 13px;
+  /* margin-bottom: 5px; */
 }
 
 #table td {
@@ -273,17 +268,19 @@ body {
 }
 
 #preview-button {
-  background-color: white;
-  border: 1px solid #2ebd59;
-  color: black;
+  background-color: #0b0b0d;
+  border: 1px solid darkgrey;
   padding: 5px 10px 5px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 13px;
+  font-size: 11px;
   border-radius: 20px;
-  margin-right: 5px;
+  margin-right: 10px;
   transition-duration: 0.3s;
+  color: #8f8f8f;
+  font-family: 'Circular';
+  text-transform: uppercase;
 }
 
 #preview-button:hover {

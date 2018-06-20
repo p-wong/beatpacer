@@ -56,7 +56,7 @@ class Visualization extends React.Component {
             <audio
               ref="audio"
               autoPlay={true}
-              controls={true}
+              // {controls={true}}
               src={this.props.audioFile}
               >
             </audio>

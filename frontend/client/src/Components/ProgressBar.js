@@ -29,7 +29,7 @@ class ProgressBar extends Component {
     return (
       <div style={containerStyle}>
         <Line percent={this.state.percent} strokeWidth="1" strokeColor={this.state.color} />
-        <p className="">{Math.ceil(this.state.percent)}%</p>
+        <p>Connecting with Spotify...<br/>{Math.ceil(this.state.percent)}%</p>
       </div>
     )
   }
