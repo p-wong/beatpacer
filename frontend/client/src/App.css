@@ -71,7 +71,8 @@ body {
 
 .logout-button {
   position: absolute;
-  text-align: center;
+  /* text-align: right; */
+  /* align: right; */
   background-color: #2ebd59;
   border: none;
   color: black;
@@ -80,22 +81,25 @@ body {
   font-size: 16px;
   border-radius: 70px;
   text-transform: uppercase;
-  margin-top: -15px;
-  float: right;
-  margin-left: 1450px;
+  /* margin-top: px; */
+  margin: 20px;
+  left: 1650px;
+  /* float: right; */
+  /* margin-left: 1450px; */
+  transition-duration: 0.3s;
 }
 
 .header-maincontainer {
   position: absolute;
   top: 80px;
   background-color: #f8f8f8;
-  height: 350px;
+  height: 250px;
   width: 100%;
 }
 
 .header-titlecontainer {
   text-align: center;
-  margin-top: 75px;
+  margin-top: 55px;
   margin-left: 20px;
   margin-right: 20px;
 }
@@ -124,26 +128,25 @@ body {
   text-transform: uppercase;
 }
 
-.wrapper {
-  text-align: center;
-}
-
-.choices-container {
+/* .choices-container {
   position: absolute;
   top: 455px;
   background-color: white;
   height: 150px;
   width: 33%;
   left: 50px;
-}
+} */
 
 .body-container {
   position: absolute;
-  top: 605px;
+  top: 375px;
   background-color: white;
   height: 150px;
-  width: 50%;
+  width: 60%;
   text-align: center;
+  border-color: black;
+  align: center;
+  left: 20%;
 }
 
 .body-title {
@@ -181,11 +184,11 @@ body {
 
 #visualizer {
   position: absolute;
-  top: -20px;
-  left: 335px;
+  top: -10px;
+  left: 350px;
   height: 100px;
   width: 70%;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .audio-player {
@@ -196,7 +199,6 @@ body {
 .firstchoice-text {
   font-size: 25px;
   line-height: 35px;
-  top: -10px;
 }
 
 .numbered-choices {
@@ -209,4 +211,82 @@ body {
   font-size: 25px;
   color: white;
   vertical-align: middle;
+  padding: 2.5px;
+  margin-right: 10px;
+  margin-top: -5px;
+}
+
+.playlist-dropdown {
+  background-color: white;
+  border-color: #2ebd59;
+  margin-left: 10px;
+  font-size: 19px;
+  width: 200px;
+  height: 35px;
+}
+
+.create-playlist-button {
+  text-align: center;
+  background-color: #2ebd59;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.create-playlist-button:hover {
+  background-color: #30cc5f;
+}
+
+#table {
+  font-family: Helvetica, Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 15px;
+  margin-top: 50px;
+}
+
+#table td, #table th {
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* #table tr:nth-child(even){background-color: #f2f2f2;} */
+
+#table tr:hover {background-color: #ddd;}
+
+#table th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: left;
+  background-color: #2ebd59;
+  color: white;
+}
+
+#table td {
+  text-align: left;
+}
+
+#preview-button {
+  background-color: white;
+  border: 1px solid #2ebd59;
+  color: black;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  border-radius: 20px;
+  margin-right: 5px;
+  transition-duration: 0.3s;
+}
+
+#preview-button:hover {
+  background-color: #30cc5f;
+  color: white;
 }

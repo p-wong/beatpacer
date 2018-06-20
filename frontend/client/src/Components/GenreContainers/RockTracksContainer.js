@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PresentationalTracks from '../PresentationalTracks'
+import ProgressBar from '../ProgressBar'
 
 import SpotifyWebApi from 'spotify-web-api-js';
 const spotifyApi = new SpotifyWebApi();
@@ -19,7 +20,10 @@ class RockTracksContainer extends Component {
       filteredTracksId: [],
 
       paceSelected: '',
-      user: []
+      user: [],
+
+      counter: 5,
+      show: true
     }
     this.getAudioFeatures = this.props.getAudioFeatures.bind(this)
     this.renderPaceDropdown = this.props.renderPaceDropdown.bind(this)
@@ -55,14 +59,24 @@ class RockTracksContainer extends Component {
         }))
       }))
     }))
+
+    setTimeout(() => {
+      this.setState({
+        show: false
+      })
+    },((this.state.counter + 1) * 5000))
   }
 
   render() {
-    console.log(this.state.filteredTracksId)
     return(
       <div>
-        {this.renderPaceDropdown(this.state.allTracksWithDetails)}
-        {this.renderCreatePlaylistButton()}
+        { this.state.show
+          ?
+          <ProgressBar counter={this.state.counter}/>
+          :
+          <div><p className="firstchoice-text"><div className="numbered-choices">2</div>Choose your desired running pace: {this.renderPaceDropdown(this.state.allTracksWithDetails)}</p>
+          {this.renderCreatePlaylistButton()}</div>
+        }
         {this.getAllTracks()}
         {this.addAllDuration()}
       </div>

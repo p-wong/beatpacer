@@ -18,7 +18,6 @@ const spotifyApi = new SpotifyWebApi();
 
 class PlaylistContainer extends Component {
   state = {
-    playlistSelected: '',
   }
 
   //Selecting the playlist
@@ -29,20 +28,7 @@ class PlaylistContainer extends Component {
   }
 
   //Rendering the "Select Playlist" dropdown onto the page
-  renderPlaylistSourceDropdown = () => {
-    return (
-      <select class='ui search inverted dropdown' name='playlistSelected' value={this.state.playlistSelected} onChange={this.handleDropdowns}>
-        <option><i>Playlists</i></option>
-        <option>Your Saved Tracks</option>
-        <option>Top 40</option>
-        <option>Pop</option>
-        <option>Hip-Hop</option>
-        <option>Country</option>
-        <option>Rock</option>
-        <option>Electronic</option>
-      </select>
-    )
-  }
+
 
   //Removing duplicates from the tracks received from the playlist API calls
   removeDupes = (allTracks, firstAttr, sndAttr) => {
@@ -82,7 +68,7 @@ class PlaylistContainer extends Component {
   renderPaceDropdown() {
     let time = ['8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00']
     return (
-      <select name='paceSelected' value={this.state.paceSelected} onChange={this.filterByPace}>
+      <select className='playlist-dropdown' name='paceSelected' value={this.state.paceSelected} onChange={this.filterByPace}>
         <option>Choose one</option>
         {time.map(t => <option>{t} min/mile</option>)}
       </select>
@@ -133,13 +119,13 @@ class PlaylistContainer extends Component {
 
   //Rendering each container based on the genre selected by the user
   renderContainers = () => {
-    if (this.state.playlistSelected === 'Your Saved Tracks') {
+    if (this.props.playlistSelected === 'Your Saved Tracks') {
       return (
         <div>
           < UserSavedTracksContainer />
         </div>
       )
-    } else if (this.state.playlistSelected === 'Top 40') {
+    } else if (this.props.playlistSelected === 'Top 40') {
       return (
         <div>
           < Top40TracksContainer params={this.props.params}
@@ -152,12 +138,12 @@ class PlaylistContainer extends Component {
                                  getAllTracks={this.getAllTracks}
                                  renderCreatePlaylistButton={this.renderCreatePlaylistButton}
                                  createAndAddPlaylistOnSpotify={this.createAndAddPlaylistOnSpotify}
-                                 playlistSelected={this.state.playlistSelected}
+                                 playlistSelected={this.props.playlistSelected}
                                  handlePlayPause={this.props.handlePlayPause}
                                  />
         </div>
       )
-    } else if (this.state.playlistSelected === 'Pop') {
+    } else if (this.props.playlistSelected === 'Pop') {
       return (
         <div>
           < PopTracksContainer params={this.props.params}
@@ -170,12 +156,12 @@ class PlaylistContainer extends Component {
                                getAllTracks={this.getAllTracks}
                                renderCreatePlaylistButton={this.renderCreatePlaylistButton}
                                createAndAddPlaylistOnSpotify={this.createAndAddPlaylistOnSpotify}
-                               playlistSelected={this.state.playlistSelected}
+                               playlistSelected={this.props.playlistSelected}
                                handlePlayPause={this.props.handlePlayPause}
                                />
         </div>
       )
-    } else if (this.state.playlistSelected === 'Hip-Hop') {
+    } else if (this.props.playlistSelected === 'Hip-Hop') {
       return (
         <div>
           < HipHopTracksContainer params={this.props.params}
@@ -188,12 +174,12 @@ class PlaylistContainer extends Component {
                                  getAllTracks={this.getAllTracks}
                                  renderCreatePlaylistButton={this.renderCreatePlaylistButton}
                                  createAndAddPlaylistOnSpotify={this.createAndAddPlaylistOnSpotify}
-                                 playlistSelected={this.state.playlistSelected}
+                                 playlistSelected={this.props.playlistSelected}
                                  handlePlayPause={this.props.handlePlayPause}
                                  />
         </div>
       )
-    } else if (this.state.playlistSelected === 'Country') {
+    } else if (this.props.playlistSelected === 'Country') {
       return (
         <div>
           < CountryTracksContainer params={this.props.params}
@@ -206,12 +192,12 @@ class PlaylistContainer extends Component {
                                    getAllTracks={this.getAllTracks}
                                    renderCreatePlaylistButton={this.renderCreatePlaylistButton}
                                    createAndAddPlaylistOnSpotify={this.createAndAddPlaylistOnSpotify}
-                                   playlistSelected={this.state.playlistSelected}
+                                   playlistSelected={this.props.playlistSelected}
                                    handlePlayPause={this.props.handlePlayPause}
                                    />
         </div>
       )
-    } else if (this.state.playlistSelected === 'Rock') {
+    } else if (this.props.playlistSelected === 'Rock') {
       return (
         <div>
           < RockTracksContainer params={this.props.params}
@@ -224,12 +210,12 @@ class PlaylistContainer extends Component {
                                getAllTracks={this.getAllTracks}
                                renderCreatePlaylistButton={this.renderCreatePlaylistButton}
                                createAndAddPlaylistOnSpotify={this.createAndAddPlaylistOnSpotify}
-                               playlistSelected={this.state.playlistSelected}
+                               playlistSelected={this.props.playlistSelected}
                                handlePlayPause={this.props.handlePlayPause}
                                />
         </div>
       )
-    } else if (this.state.playlistSelected === 'Electronic') {
+    } else if (this.props.playlistSelected === 'Electronic') {
       return (
         <div>
           < ElectronicTracksContainer params={this.props.params}
@@ -242,7 +228,7 @@ class PlaylistContainer extends Component {
                                      getAllTracks={this.getAllTracks}
                                      renderCreatePlaylistButton={this.renderCreatePlaylistButton}
                                      createAndAddPlaylistOnSpotify={this.createAndAddPlaylistOnSpotify}
-                                     playlistSelected={this.state.playlistSelected}
+                                     playlistSelected={this.props.playlistSelected}
                                      handlePlayPause={this.props.handlePlayPause}
                                      />
         </div>
@@ -263,7 +249,7 @@ class PlaylistContainer extends Component {
 
   //Rendering the button to create the playlist on the user's Spotify account
   renderCreatePlaylistButton() {
-    return <button onClick={this.createAndAddPlaylistOnSpotify}>Create Playlist!</button>
+    return <button className='create-playlist-button' onClick={this.createAndAddPlaylistOnSpotify}>Create Playlist</button>
   }
 
   //Creates an empty playlist on Spotify, and then adds tracks to it
@@ -279,7 +265,6 @@ class PlaylistContainer extends Component {
     // console.log()
     return (
       <div>
-        {this.renderPlaylistSourceDropdown()}
         {this.renderContainers()}
 
       </div>

@@ -20,13 +20,13 @@ class PresentationalTracks extends React.Component {
 
   render() {
     return (
-      <table className="ui striped table large tableStyle">
+      <table id="table">
         <tbody>
           <tr>
-            <th>Song Name</th>
-            <th>Artist(s)</th>
-            <th>Tempo (BPM)</th>
-            <th>Duration (min)</th>
+            <th width="50%">Song Name</th>
+            <th width="30%">Artist(s)</th>
+            <th width="10%">Tempo (BPM)</th>
+            <th width="10%">Duration (min)</th>
           </tr>
           {this.renderTracks()}
         </tbody>

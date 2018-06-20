@@ -36,7 +36,7 @@ class Visualization extends React.Component {
       for (var i = 0; i < bars; i++) {
         let bar_x = i * 6;
         let bar_width = 4;
-        let bar_height = -(freqData[i] / 4);
+        let bar_height = -(freqData[i] / 3.5);
         ctx.fillRect(bar_x, canvas.height, bar_width, bar_height)
       }
     };

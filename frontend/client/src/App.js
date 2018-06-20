@@ -19,7 +19,8 @@ class App extends Component {
       loggedIn: token ? true : false,
       params: params,
       playing: false,
-      audioFile: ''
+      audioFile: '',
+      playlistSelected: '',
     }
   }
 
@@ -43,6 +44,28 @@ class App extends Component {
     }))
   }
 
+  renderPlaylistSourceDropdown = () => {
+    return (
+      <select className='playlist-dropdown' name='playlistSelected' value={this.state.playlistSelected} onChange={this.handleDropdowns}>
+        <option><i>Playlists</i></option>
+        <option>Your Saved Tracks</option>
+        <option>Top 40</option>
+        <option>Pop</option>
+        <option>Hip-Hop</option>
+        <option>Country</option>
+        <option>Rock</option>
+        <option>Electronic</option>
+      </select>
+
+    )
+  }
+
+  handleDropdowns = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
 
   render() {
     console.log(this.state.loggedIn)
@@ -53,22 +76,16 @@ class App extends Component {
           <div className="header-titlecontainer">
             <h1 className="header-title">Pace Maker</h1>
             <p className="header-text">
-            Pace Maker generates a playlist of songs based on your running pace.<br/>
-
-            Next, choose your desired running pace. You will then get a list of tracks with a tempo (beats per minute) matched with your desired pace.
+            Generating playlists based on your running pace<br/>
             </p>
           </div>
         </div>
         { this.state.loggedIn
         ?
         <span>
-          <div className="choices-container wrapper">
-            <p className="numbered-choices">1</p>
-            <p className="firstchoice-text">Choose either your saved songs, <br/>
-            or a genre of your liking:</p>
-          </div>
-          <div className="body-container wrapper">
-            < PlaylistContainer params={this.state.params} handlePlayPause={this.handlePlayPause} playing={this.state.playing}/>
+          <div className="body-container">
+            <p className="firstchoice-text"><div className="numbered-choices">1</div>  Choose either your saved songs, or a genre of your liking:    {this.renderPlaylistSourceDropdown()}</p>
+            < PlaylistContainer params={this.state.params} handlePlayPause={this.handlePlayPause} playing={this.state.playing} playlistSelected={this.state.playlistSelected}/>
           </div>
         </span>
         :
