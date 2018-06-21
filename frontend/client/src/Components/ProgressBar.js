@@ -25,11 +25,15 @@ class ProgressBar extends Component {
   render() {
     const containerStyle = {
       width: '100%',
+      marginBotton: '50px',
+      marginTop: '50px',
+      width: '70%',
+      marginLeft: '15%'
     };
     return (
       <div style={containerStyle}>
         <Line percent={this.state.percent} strokeWidth="1" strokeColor={this.state.color} />
-        <p>Connecting with Spotify...<br/>{Math.ceil(this.state.percent)}%</p>
+        <p className="progress-bar-text">Loading {this.props.filteredTracks.length > 0 ? this.props.filteredTracks.length : null} tracks from Spotify...<br/>{Math.ceil(this.state.percent)}%</p>
       </div>
     )
   }

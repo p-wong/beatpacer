@@ -17,16 +17,13 @@ import SpotifyWebApi from 'spotify-web-api-js';
 const spotifyApi = new SpotifyWebApi();
 
 class PlaylistContainer extends Component {
-  
+
   //Selecting the playlist
   handleDropdowns = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
   }
-
-  //Rendering the "Select Playlist" dropdown onto the page
-
 
   //Removing duplicates from the tracks received from the playlist API calls
   removeDupes = (allTracks, firstAttr, sndAttr) => {
@@ -67,7 +64,6 @@ class PlaylistContainer extends Component {
     let time = ['8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00']
     return (
       <select className='playlist-dropdown' name='paceSelected' value={this.state.paceSelected} onChange={this.filterByPace}>
-        <option>Choose one</option>
         {time.map(t => <option>{t} min/mile</option>)}
       </select>
     )
@@ -120,7 +116,19 @@ class PlaylistContainer extends Component {
     if (this.props.playlistSelected === 'Your Saved Tracks') {
       return (
         <div>
-          < UserSavedTracksContainer />
+          < UserSavedTracksContainer params={this.props.params}
+                                     removeDupes={this.removeDupes}
+                                     getAudioFeatures={this.getAudioFeatures}
+                                     renderPaceDropdown={this.renderPaceDropdown}
+                                     filterByPace={this.filterByPace}
+                                     convertMillisecondsToMinutes={this.convertMillisecondsToMinutes}
+                                     addAllDuration={this.addAllDuration}
+                                     getAllTracks={this.getAllTracks}
+                                     renderCreatePlaylistButton={this.renderCreatePlaylistButton}
+                                     createAndAddPlaylistOnSpotify={this.createAndAddPlaylistOnSpotify}
+                                     playlistSelected={this.props.playlistSelected}
+                                     handlePlayPause={this.props.handlePlayPause}
+                                     />
         </div>
       )
     } else if (this.props.playlistSelected === 'Top 40') {
@@ -247,7 +255,7 @@ class PlaylistContainer extends Component {
 
   //Rendering the button to create the playlist on the user's Spotify account
   renderCreatePlaylistButton() {
-    return <button className='create-playlist-button' onClick={this.createAndAddPlaylistOnSpotify}>Create Playlist</button>
+    return <button className='create-playlist-button' onClick={this.createAndAddPlaylistOnSpotify}>Create Playlist on Spotify</button>
   }
 
   //Creates an empty playlist on Spotify, and then adds tracks to it
@@ -264,7 +272,6 @@ class PlaylistContainer extends Component {
     return (
       <div>
         {this.renderContainers()}
-
       </div>
     )
   }

@@ -72,9 +72,9 @@ class CountryTracksContainer extends Component {
       <div>
         { this.state.show
           ?
-          <ProgressBar counter={this.state.counter}/>
+          <ProgressBar counter={this.state.counter} filteredTracks={this.state.filteredTracks}/>
           :
-          <div><p className="firstchoice-text"><div className="numbered-choices">2</div>Choose your desired running pace: {this.renderPaceDropdown(this.state.allTracksWithDetails)}</p>
+          <div><p className="firstchoice-text"><div className="numbered-choices">2</div>Choose your running pace: {this.renderPaceDropdown(this.state.allTracksWithDetails)}</p>
           {this.renderCreatePlaylistButton()}</div>
         }
         {this.getAllTracks()}

@@ -46,17 +46,15 @@ class App extends Component {
 
   renderPlaylistSourceDropdown = () => {
     return (
-      <select className='playlist-dropdown' name='playlistSelected' value={this.state.playlistSelected} onChange={this.handleDropdowns}>
-        <option><i>Playlists</i></option>
-        <option>Your Saved Tracks</option>
-        <option>Top 40</option>
-        <option>Pop</option>
-        <option>Hip-Hop</option>
-        <option>Country</option>
-        <option>Rock</option>
-        <option>Electronic</option>
-      </select>
-
+      <div>
+        <button className='playlist-boxes your-saved-tracks' onClick={this.handleDropdowns} name='playlistSelected' value="Your Saved Tracks"><p className='playlist-text'>Your Saved Tracks</p></button>
+        <button className='playlist-boxes top-40' onClick={this.handleDropdowns} name='playlistSelected' value="Top 40"><p className='playlist-text'>Top 40</p></button>
+        <button className='playlist-boxes pop' onClick={this.handleDropdowns} name='playlistSelected' value="Pop"><p className='playlist-text'>Pop</p></button>
+        <button className='playlist-boxes hip-hop' onClick={this.handleDropdowns} name='playlistSelected' value="Hip-Hop"><p className='playlist-text'>Hip-Hop</p></button>
+        <button className='playlist-boxes country' onClick={this.handleDropdowns} name='playlistSelected' value="Country"><p className='playlist-text'>Country</p></button>
+        <button className='playlist-boxes rock' onClick={this.handleDropdowns} name='playlistSelected' value="Rock"><p className='playlist-text'>Rock</p></button>
+        <button className='playlist-boxes electronic' onClick={this.handleDropdowns} name='playlistSelected' value="Electronic"><p className='playlist-text'>Electronic</p></button>
+      </div>
     )
   }
 
@@ -68,13 +66,13 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state.loggedIn)
+    console.log(this.state.playlistSelected)
     return (
       <div>
         <NavBar params={this.state.params} playing={this.state.playing} audioFile={this.state.audioFile}/>
         <div className="header-maincontainer">
           <div className="header-titlecontainer">
-            <h1 className="header-title">Pace Maker</h1>
+            <h1 className="header-title">Tempo Run</h1>
             <p className="header-text">
             Generating playlists based on your running pace<br/>
             </p>
@@ -83,23 +81,23 @@ class App extends Component {
         { this.state.loggedIn
         ?
 
-          <div className="body-full">
-            <div className="body-container">
-              <p className="firstchoice-text"><div className="numbered-choices">1</div>  Choose either your saved songs, or a genre of your liking:    {this.renderPlaylistSourceDropdown()}</p>
-              < PlaylistContainer params={this.state.params} handlePlayPause={this.handlePlayPause} playing={this.state.playing} playlistSelected={this.state.playlistSelected}/>
-            </div>
+        <div className="body-full">
+          <div className="body-container">
+            <p className="firstchoice-text"><div className="numbered-choices">1</div>Choose a genre or your library: <br/>{this.renderPlaylistSourceDropdown()}</p>
+            < PlaylistContainer params={this.state.params} handlePlayPause={this.handlePlayPause} playing={this.state.playing} playlistSelected={this.state.playlistSelected}/>
           </div>
+        </div>
 
         :
 
-          <div className="body-full">
-            <div className="body-container wrapper">
-              <p className="header-text">To get started, login with your Spotify credentials.<br/></p>
-              <div className="wrapper">
-                <button className="login-button"><a href='http://localhost:8888'>Login with Spotify</a></button>
-              </div>
+        <div className="body-full">
+          <div className="body-container wrapper">
+            <p className="header-text">To get started, login with your Spotify credentials.<br/></p>
+            <div className="wrapper">
+              <button className="login-button"><a href='http://localhost:8888'>Login with Spotify</a></button>
             </div>
           </div>
+        </div>
 
         }
       </div>
