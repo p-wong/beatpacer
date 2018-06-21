@@ -40,7 +40,7 @@ class RockTracksContainer extends Component {
     const rockThis = '37i9dQZF1DXcF6B6QPhFDv'
     const rockAnthems = '37i9dQZF1DWXRqgorJj26U'
     const rockThe00s = '37i9dQZF1DX153gOfbCM2i'
-    const rockRenaissance = '37i9dQZF1DWZn9s1LNKPiM'
+    const rockRenaissance = '5GGVV1NAMi8u7bpsh232E0'
 
     spotifyApi.getPlaylistTracks(userToken, rockThis)
     .then(response => this.setState({ firstPlaylist: response.items }, () => {

@@ -47,7 +47,7 @@ class App extends Component {
   renderPlaylistSourceDropdown = () => {
     return (
       <div>
-        <button className='playlist-boxes your-saved-tracks' onClick={this.handleDropdowns} name='playlistSelected' value="Your Saved Tracks"><p className='playlist-text'>Your Saved Tracks</p></button>
+        <button className='playlist-boxes your-saved-tracks' onClick={this.handleDropdowns} name='playlistSelected' value="Your Saved Tracks"><p className='playlist-text'>Your Library</p></button>
         <button className='playlist-boxes top-40' onClick={this.handleDropdowns} name='playlistSelected' value="Top 40"><p className='playlist-text'>Top 40</p></button>
         <button className='playlist-boxes pop' onClick={this.handleDropdowns} name='playlistSelected' value="Pop"><p className='playlist-text'>Pop</p></button>
         <button className='playlist-boxes hip-hop' onClick={this.handleDropdowns} name='playlistSelected' value="Hip-Hop"><p className='playlist-text'>Hip-Hop</p></button>
