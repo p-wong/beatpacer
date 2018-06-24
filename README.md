@@ -14,6 +14,8 @@ This is a student project, created for educational purposes. The main goal of th
 
 ## Installation 
 
+Start up the backend:
+
 ```
 cd backend 
 cd auth-server
@@ -21,6 +23,7 @@ cd authorization-code
 node app.js
 ```
 
+Start up the frontend:
 ```
 cd frontend 
 cd client
