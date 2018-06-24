@@ -6,7 +6,7 @@ After logging into their Spotify account, the user can choose a genre or their o
 
 ## Motivation 
 
-This is a student project, created for educational purposes. The main goal of this project was to learn ReactJS, build single-page applications, and call APIs on the front-end. 
+This is a student project, created for educational purposes. The main goal of this project was to use ReactJS, build single-page applications, and call APIs on the front-end. 
 
 ## Demo 
 
